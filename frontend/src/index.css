@@ -10,16 +10,18 @@
     transition: all 0.3s;
 }
 
-.more-button:hover {
-    transition: width 0.5s;
+.card {
+    max-height: 360px;
+    overflow: hidden;
 }
 
-.more-button:hover .arrow{
-    display: inline-block;
+.player-image {
+    transition: height 0.5s;
 }
 
 .card:hover .player-image {
     height: 15rem;
+    opacity: 1;
 }
 
 .card:hover .extra-player-details {
