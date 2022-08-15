@@ -10,7 +10,7 @@ const PlayerCard = (props) => {
     <div className='card w-[23%] my-4 py-1 mx-2 max-w-xs border-2 border-zinc-300 rounded-md hover:my-shadow hover:border-zinc-400 shadow-md'>
       <img className='player-image m-auto w-[100%] h-72 object-top max-w-xs object-cover' src={props.details.img} alt="Player" />
       <div className='main-info relative flex my-4 px-2 justify-between'>
-        <p className='text-lg font-semibold'>{props.details.name}</p>
+        <p className='text-lg font-merriweather font-semibold'>{props.details.name}</p>
         <img width={40} src={`https://countryflagsapi.com/png/${props.details.country}`} alt="Player country" />
       </div>
       <div className='extra-player-details hidden'>
