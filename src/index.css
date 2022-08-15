@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rem-height {
+    height: calc(100vh - 64px);
+}
+
+.link-transition{
+    transition: all 0.3s;
+}
+
+.more-button:hover {
+    transition: width 0.5s;
+}
+
+.more-button:hover .arrow{
+    display: inline-block;
+}
+
+.card:hover .player-image {
+    height: 15rem;
+}
+
+.card:hover .extra-player-details {
+    display: flex;
+}
+
+
+@layer components {
+    .active {
+        @apply border-b-2 border-purple-800 text-purple-800
+    }
+}

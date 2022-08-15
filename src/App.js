@@ -1,10 +1,15 @@
 import './App.css';
+import Jumbotron from './components/Jumbotron';
+import Navbar from './components/Navbar';
+import PlayerList from './components/PlayerList';
 
 function App() {
   return (
-    <h1 className="text-3xl text-center font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Navbar />
+      <Jumbotron />
+      <PlayerList />
+    </>
   );
 }
 
