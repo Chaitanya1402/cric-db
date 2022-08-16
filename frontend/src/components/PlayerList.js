@@ -1,37 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PlayerCard from './PlayerCard'
 import PlayerInfo from './PlayerInfo';
 
 const PlayerList = () => {
   const [active, setActive] = useState("allplayers");
-  const details = {
-    "name": "Virat Kohli",
-    "country": "India",
-    "img": "https://www.cricket.com.au/-/media/Players/Men/International/India/2021%20T20WC/Virat-Kohli-2122.ashx",
-    "countryCode": "in",
-    "age": 33,
-    "role": "batsman",
-    "caps": 293,
-    "personalInfo": [
-      {"Birth Place": "Delhi"},
-      {"Height": "5ft 9in (175cm)"},
-      {"Batting Style": "Right Handed Bat"},
-      {"Bowling Style": "Right-arm Medium"}
-    ],
-    "rankings": [
-      {"batting": [
-          {"Test": 12},
-          {"ODI": 5},
-          {"T20": 32}
-    ]},
-      {"bowling": [
-        {"Test": "NA"},
-        {"ODI": "NA"},
-        {"T20": "NA"}
-      ]}
-    ],
-    "teamsPlayedFor": "India, Delhi, India Red, India U19, Royal Challengers Bangalore, Board Presidents XI, North Zone, Indians, India A, Asia XI"
+  const [details, setDetails] = useState([])
+  const [temp, setTemp] = useState([])  // temp because the details array will be modified when setDetails() is called and old fetched data is modified.
+
+  const fetchData = async () => {
+    const res = await fetch("http://localhost:5000/api/players");
+    const json = await res.json();
+    setDetails(json.result);
+    setTemp(json.result);
   }
+
+  const checkRole = (info) => {
+    return info.role === active;
+  }
+
+  const filterData = () => {
+    active === "allplayers" ? setDetails(temp) : setDetails(temp.filter(checkRole));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  useEffect(() => {
+    filterData();
+  }, [active])
 
   return (
     <>
@@ -45,15 +42,13 @@ const PlayerList = () => {
         </div>
         {/* Players List goes here */}
         <div className='flex mt-8 flex-wrap justify-center'>
-          <PlayerCard details={details} />
-          <PlayerCard details={details} />
-          <PlayerCard details={details} />
-          <PlayerCard details={details} />
-          <PlayerCard details={details} />
-          <PlayerCard details={details} />
+          {details.map((element, key) => {
+            return <PlayerCard key={key} details={element} />
+          })}
+
         </div>
       </div>
-      <PlayerInfo details={details} />
+      {/* <PlayerInfo details={details} /> */}
     </>
   )
 }
