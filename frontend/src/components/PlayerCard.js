@@ -31,7 +31,7 @@ const PlayerCard = (props) => {
         <img className='player-image m-auto w-[100%] h-72 object-top max-w-xs object-cover opacity-90' src={props.details.img} alt="Player" />
         <div className='main-info relative flex my-4 px-2 justify-between'>
           <p className='text-lg font-merriweather font-semibold'>{props.details.name}</p>
-          <img width={40} src={`https://countryflagsapi.com/png/${props.details.country}`} alt="Player country" />
+          <img width={40} src={`https://countryflagsapi.com/png/${props.details.countryCode}`} alt="Player country" />
         </div>
         <div className='extra-player-details hidden'>
           <div className="age-box border-l w-[100%] text-center">

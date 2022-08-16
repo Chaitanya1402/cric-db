@@ -1,16 +1,38 @@
 import React, { useState } from 'react'
 import PlayerCard from './PlayerCard'
+import PlayerInfo from './PlayerInfo';
 
 const PlayerList = () => {
   const [active, setActive] = useState("allplayers");
   const details = {
     "name": "Virat Kohli",
+    "country": "India",
     "img": "https://www.cricket.com.au/-/media/Players/Men/International/India/2021%20T20WC/Virat-Kohli-2122.ashx",
-    "country": "in",
+    "countryCode": "in",
     "age": 33,
     "role": "batsman",
-    "caps": 293
+    "caps": 293,
+    "personalInfo": [
+      {"Birth Place": "Delhi"},
+      {"Height": "5ft 9in (175cm)"},
+      {"Batting Style": "Right Handed Bat"},
+      {"Bowling Style": "Right-arm Medium"}
+    ],
+    "rankings": [
+      {"batting": [
+          {"Test": 12},
+          {"ODI": 5},
+          {"T20": 32}
+    ]},
+      {"bowling": [
+        {"Test": "NA"},
+        {"ODI": "NA"},
+        {"T20": "NA"}
+      ]}
+    ],
+    "teamsPlayedFor": "India, Delhi, India Red, India U19, Royal Challengers Bangalore, Board Presidents XI, North Zone, Indians, India A, Asia XI"
   }
+
   return (
     <>
       <div className='w-[85%] m-auto'>
@@ -30,8 +52,8 @@ const PlayerList = () => {
           <PlayerCard details={details} />
           <PlayerCard details={details} />
         </div>
-
       </div>
+      <PlayerInfo details={details} />
     </>
   )
 }
