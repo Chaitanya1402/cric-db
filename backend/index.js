@@ -30,6 +30,19 @@ app.get("/api/players", (req, res) => {
     });
 })
 
+app.get("/api/playersbyid", (req, res) => {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("cric-db");
+        dbo.collection("players").findOne({_id: req.body._id}, (err, result) => {
+            if (err) throw err;
+            res.status(200);
+            res.json({success: true, result: result});
+            db.close();
+        })
+    });
+})
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 })
