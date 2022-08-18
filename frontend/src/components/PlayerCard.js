@@ -21,7 +21,7 @@ const PlayerCard = (props) => {
     img = bowler
   }
 
-  let url = props.details._id + "/" + props.details.name.toLowerCase().replace(" ", "-");
+  let url = props.details._id + "/" + props.details.name.toLowerCase().replaceAll(" ", "-");
 
   return (
     <>
