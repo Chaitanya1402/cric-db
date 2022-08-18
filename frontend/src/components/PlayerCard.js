@@ -3,13 +3,9 @@ import batsman from '../images/batcolored.png';
 import bowler from '../images/ball.png';
 import wicketkeeper from '../images/gloves.png';
 import allrounder from '../images/batball.png';
+import { Link } from 'react-router-dom';
 
 const PlayerCard = (props) => {
-  // {props.details.name}
-  // {props.details.country}
-  // {props.details.age}
-  // {props.details.role}
-  // {props.details.caps}
   let role = props.details.role
   let img;
   if (role === 'batsman') {
@@ -25,9 +21,11 @@ const PlayerCard = (props) => {
     img = bowler
   }
 
+  let url = props.details._id + "/" + props.details.name.toLowerCase().replace(" ", "-");
+
   return (
     <>
-      <a href="/" className='card w-[23%] my-4 py-1 mx-2 max-w-xs border-2 border-zinc-300 rounded-md hover:my-shadow hover:border-zinc-400 shadow-md'>
+      <Link to={url} className='card w-[23%] my-4 py-1 mx-2 max-w-xs border-2 border-zinc-300 rounded-md hover:my-shadow hover:border-zinc-400 shadow-md'>
         <img className='player-image m-auto w-[100%] h-72 object-top max-w-xs object-cover opacity-90' src={props.details.img} alt="Player" />
         <div className='main-info relative flex my-4 px-2 pb-1 justify-between'>
           <p className='text-lg font-merriweather font-semibold'>{props.details.name}</p>
@@ -47,7 +45,7 @@ const PlayerCard = (props) => {
             <p>{props.details.caps}</p>
           </div>
         </div>
-      </a>
+      </Link>
     </>
   )
 }

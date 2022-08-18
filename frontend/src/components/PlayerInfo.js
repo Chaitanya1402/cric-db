@@ -1,30 +1,45 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
-const PlayerInfo = (props) => {
+const PlayerInfo = () => {
   const [wiki, setWiki] = useState("");
+  const [details, setDetails] = useState({});
+  let params = useParams();
 
-  const wikiPlayer = async () => {
-    let url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=5&explaintext=1&format=json&titles=${props.details.name}&origin=*`
+  const fetchPlayerData = async () => {
+    var url = new URL("http://localhost:5000/api/playersbyid");
+    url.search = new URLSearchParams({ _id: params.id }).toString();
+
     const res = await fetch(url);
     const json = await res.json();
-    // console.log(json.query.pages[Object.keys(json.query.pages)[0]].extract);
+    setDetails(json.result);
+  }
+
+  const wikiPlayer = async () => {
+    let url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=5&explaintext=1&format=json&titles=${details.name}&origin=*`
+    const res = await fetch(url);
+    const json = await res.json();
     setWiki(json.query.pages[Object.keys(json.query.pages)[0]].extract)
   }
 
   useEffect(() => {
+    fetchPlayerData();
+  }, [])
+
+  useEffect(() => {
     wikiPlayer();
-  })
+  }, [wiki])
 
   return (
     <>
-      <div className='w-[75%] m-auto'>
+      {details && <div className='w-[75%] m-auto'>
         <div className='flex justify-between items-start'>
           <div className='details w-[65%]'>
-            <p className='text-4xl font-semibold'>{props.details.name}</p>
-            <p className='text-xl font-medium'>{props.details.country}</p>
+            <p className='text-4xl font-semibold'>{details.name}</p>
+            <p className='text-xl font-medium'>{details.country}</p>
             <p className='text-lg mt-5'>Personal Information</p>
             <div className='my-2 bg-gray-100 w-[60%]'>
-              {props.details.personalInfo.map((element, key) => {
+              {details.personalInfo && details.personalInfo.map((element, key) => {
                 return (
                   <div className='flex justify-between' key={key}>
                     <p className='w-[100%] px-2 py-1 border border-gray-200 font-medium'>{Object.keys(element)[0]}</p>
@@ -33,7 +48,7 @@ const PlayerInfo = (props) => {
                 )
               })}
             </div>
-            
+
             <p className='text-lg mt-5'>ICC Rankings</p>
             <div className='my-2 bg-gray-100 w-[60%] grid grid-cols-4'>
               <p className='px-2 py-1 border border-gray-200'></p>
@@ -41,30 +56,30 @@ const PlayerInfo = (props) => {
               <p className='px-2 py-1 border border-gray-200 font-medium'>ODI</p>
               <p className='px-2 py-1 border border-gray-200 font-medium'>T20</p>
               <p className='px-2 py-1 border border-gray-200 font-medium'>Batting</p>
-              <p className='px-2 py-1 border border-gray-200'>{props.details.rankings[0].batting[0].Test}</p>
-              <p className='px-2 py-1 border border-gray-200'>{props.details.rankings[0].batting[1].ODI}</p>
-              <p className='px-2 py-1 border border-gray-200'>{props.details.rankings[0].batting[2].T20}</p>
+              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[0].batting[0].Test}</p>
+              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[0].batting[1].ODI}</p>
+              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[0].batting[2].T20}</p>
               <p className='px-2 py-1 border border-gray-200 font-medium'>Bowling</p>
-              <p className='px-2 py-1 border border-gray-200'>{props.details.rankings[1].bowling[0].Test}</p>
-              <p className='px-2 py-1 border border-gray-200'>{props.details.rankings[1].bowling[1].ODI}</p>
-              <p className='px-2 py-1 border border-gray-200'>{props.details.rankings[1].bowling[2].T20}</p>
+              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[1].bowling[0].Test}</p>
+              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[1].bowling[1].ODI}</p>
+              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[1].bowling[2].T20}</p>
             </div>
 
             <p className='text-lg mt-5'>Teams played for:</p>
-            
+
             <div className='my-2 bg-gray-100 w-[60%] py-1 px-2 border border-gray-200'>
-              {props.details.teamsPlayedFor}
+              {details.teamsPlayedFor}
             </div>
           </div>
           <div className="img">
-            <img className='h-[30rem] object-cover' src={props.details.img} alt="Player" />
+            <img className='h-[30rem] object-cover' src={details.img} alt="Player" />
           </div>
         </div>
 
         <div className='my-5 text-justify'>
-          { wiki }
+          {wiki !== "Undefined may refer to:" && wiki}
         </div>
-      </div>
+      </div>}
     </>
   )
 }
