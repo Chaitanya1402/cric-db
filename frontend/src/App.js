@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import PlayerList from './components/PlayerList';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PlayerInfo from './components/PlayerInfo';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path='players' element={<PlayerList />} />
           <Route path='players/:id/:name' element={<PlayerInfo />} />
           {/* For error page */}
-          {/* <Route path='*' element={<Jumbotron />} /> */}
+          <Route path='*' element={<ErrorPage />} />
 
         </Routes>
       </Router>
