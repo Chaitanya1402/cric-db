@@ -32,7 +32,7 @@ const PlayerInfo = () => {
 
   return (
     <>
-      {details && <div className='w-[75%] m-auto'>
+      {details && <div className='w-[75%] m-auto my-8'>
         <div className='flex justify-between items-start'>
           <div className='details w-[65%]'>
             <p className='text-4xl font-semibold'>{details.name}</p>
