@@ -11,7 +11,7 @@ const Navbar = () => {
         <div> 
           <ul className='flex justify-center items-center font-lato'>
             <li className='mx-3'><Link className='px-2 py-1 text-lg rounded-xl border-2 border-purple-300 hover:bg-purple-200 link-transition' to={'/'}>Home</Link></li>
-            <li className='mx-3'><Link className='px-2 py-1 text-lg rounded-xl border-2 border-purple-300 hover:bg-purple-200 link-transition' to={'/'}>About</Link></li>
+            <li className='mx-3'><Link className='px-2 py-1 text-lg rounded-xl border-2 border-purple-300 hover:bg-purple-200 link-transition' to={'/about'}>About</Link></li>
             <li className='mx-3'><Link className='px-2 py-1 text-lg rounded-xl border-2 border-purple-300 hover:bg-purple-200 link-transition' to={'/contact'}>Contact</Link></li>
           </ul>
         </div>
