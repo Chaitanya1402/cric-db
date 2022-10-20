@@ -32,13 +32,13 @@ const PlayerInfo = () => {
 
   return (
     <>
-      {details && <div className='w-[75%] m-auto my-8'>
-        <div className='flex justify-between items-start'>
-          <div className='details w-[65%]'>
-            <p className='text-4xl font-semibold'>{details.name}</p>
-            <p className='text-xl font-medium'>{details.country}</p>
+      {details && <div className='w-[90%] md:w-[75%] m-auto my-4 md:my-8'>
+        <div className='flex flex-col-reverse md:flex-row'>
+          <div className='details md:w-[65%]'>
+            <p className='text-2xl md:text-4xl font-semibold'>{details.name}</p>
+            <p className='text-lg md:text-xl font-medium'>{details.country}</p>
             <p className='text-lg mt-5'>Personal Information</p>
-            <div className='my-2 bg-gray-100 w-[60%]'>
+            <div className='my-2 bg-gray-100 md:w-[60%]'>
               {details.personalInfo && details.personalInfo.map((element, key) => {
                 return (
                   <div className='flex justify-between' key={key}>
@@ -50,7 +50,7 @@ const PlayerInfo = () => {
             </div>
 
             <p className='text-lg mt-5'>ICC Rankings</p>
-            <div className='my-2 bg-gray-100 w-[60%] grid grid-cols-4'>
+            <div className='my-2 bg-gray-100 md:w-[60%] grid grid-cols-4'>
               <p className='px-2 py-1 border border-gray-200'></p>
               <p className='px-2 py-1 border border-gray-200 font-medium'>Test</p>
               <p className='px-2 py-1 border border-gray-200 font-medium'>ODI</p>
@@ -67,12 +67,12 @@ const PlayerInfo = () => {
 
             <p className='text-lg mt-5'>Teams played for:</p>
 
-            <div className='my-2 bg-gray-100 w-[60%] py-1 px-2 border border-gray-200'>
+            <div className='my-2 bg-gray-100 md:w-[60%] py-1 px-2 border border-gray-200'>
               {details.teamsPlayedFor}
             </div>
           </div>
-          <div className="img">
-            <img className='h-[30rem] object-cover' src={details.img} alt="Player" />
+          <div className="img mb-4 md:mb-0">
+            <img className='h-80 m-auto md:h-[30rem] object-cover' src={details.img} alt="Player" />
           </div>
         </div>
 

@@ -25,13 +25,13 @@ const PlayerCard = (props) => {
 
   return (
     <>
-      <Link to={url} className='card w-[23%] my-4 py-1 mx-2 max-w-xs border-2 border-zinc-300 rounded-md hover:my-shadow hover:border-zinc-400 shadow-md'>
-        <img className='player-image m-auto w-[100%] h-72 object-top max-w-xs object-cover opacity-90' src={props.details.img} alt="Player" />
-        <div className='main-info relative flex my-4 px-2 pb-1 justify-between'>
-          <p className='text-lg font-merriweather font-semibold'>{props.details.name}</p>
-          <img width={40} src={`https://countryflagsapi.com/png/${props.details.countryCode}`} alt="Player country" />
+      <Link to={url} className='card w-[45%] md:w-[23%] my-4 py-1 mx-2 max-w-xs border-2 border-zinc-300 rounded-md hover:my-shadow hover:border-zinc-400 shadow-md'>
+        <img className='player-image m-auto w-[100%] h-48 md:h-72 object-top max-w-xs object-cover opacity-90' src={props.details.img} alt="Player" />
+        <div className='main-info relative flex my-4 px-2 pb-1 justify-between items-center'>
+          <p className='text-base md:text-lg font-merriweather font-semibold'>{props.details.name}</p>
+          <img className='w-[30px] h-[20px] md:w-[40px] md:h-[30px]' src={`https://countryflagsapi.com/png/${props.details.countryCode}`} alt="Player country" />
         </div>
-        <div className='extra-player-details flex'>
+        <div className='md:extra-player-details hidden md:flex'>
           <div className="age-box border-l w-[100%] text-center">
             <p className='font-medium'>Age</p>
             <p>{props.details.age}</p>

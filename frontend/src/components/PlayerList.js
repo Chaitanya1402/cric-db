@@ -32,7 +32,7 @@ const PlayerList = () => {
 
   return (
     <>
-      <div className='w-[85%] m-auto'>
+      <div className='w-[95%] md:w-[85%] m-auto'>
         <div className="options font-medium">
           <button onClick={() => setActive('allplayers')} className={`${active === 'allplayers' ? 'active': ''} p-1 mx-2`}>All players</button>
           <button onClick={() => setActive('batsman')} className={`${active === 'batsman' ? 'active' : ''} p-1 mx-2`}>Batsmen</button>

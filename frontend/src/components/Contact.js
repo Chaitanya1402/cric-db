@@ -5,18 +5,18 @@ const Contact = () => {
   return (
     <div className='w-[85%] m-auto my-8'>
       <h2 className='font-merriweather text-xl font-medium mb-2'>Developer Information</h2>
-      <p>Hello netizens, my name is <span className='font-semibold'>Chaitanya Sondur</span>. First of all, I would like to thank you all for showing interest to browse this website. This is one of the happiest things for a developer. I am a full-stack web developer from Mumbai, India. I like to develop projects using the MERN stack. If you have any queries or suggestions, kindly contact me on my social media links provided below. I am looking forward to your suggestions to always learn and grow in life.</p>
+      <p>Hello people, my name is <span className='font-semibold'>Chaitanya Sondur</span>. First of all, I would like to thank you all for showing interest to browse this website. This is one of the happiest things for a developer. I am a full-stack web developer from Mumbai, India. I like to develop projects using the MERN stack. If you have any queries or suggestions, kindly contact me on my social media links provided below. I am looking forward to your suggestions to always learn and grow in life.</p>
 
-      <div className="social-links my-8 flex justify-center items-center">
-        <div className='flex justify-center items-center mx-8'>
+      <div className="social-links my-8 flex justify-center flex-col md:flex-row items-center">
+        <div className='flex justify-center items-center mx-8 p-2'>
           <i class="fa-brands fa-github text-3xl"></i>
           <a href='https://github.com/Chaitanya1402' className='px-2 text-blue-700 font-medium underline' target={"_blank"}>Github</a>
         </div>
-        <div className='flex justify-center items-center mx-8'>
+        <div className='flex justify-center items-center mx-8 p-2'>
           <i class="fa-regular fa-envelope text-3xl"></i>
           <a href='mailto:chaitanyas2002@gmail.com' className='px-2 text-blue-700 font-medium underline'>chaitanyas2002@gmail.com</a>
         </div>
-        <div className='flex justify-center items-center mx-8'>
+        <div className='flex justify-center items-center mx-8 p-2'>
           <i class="fa-brands fa-linkedin text-3xl"></i>
           <a href='https://www.linkedin.com/in/chaitanya-sondur-821141222/' className='px-2 text-blue-700 font-medium underline' target={"_blank"}>LinkedIn</a>
         </div>
@@ -24,7 +24,7 @@ const Contact = () => {
 
       <div className="other-projects my-8">
         <h3 className='text-xl font-medium mb-2'>My other projects you may like:</h3>
-        <div className="project-card my-8 bg-purple-200 p-2 rounded-md">
+        <div className="project-card my-8 bg-purple-200 p-4 rounded-md">
           <h3 className='font-semibold mb-2'>Even-Tual: A system for online events
           <span className='ml-8 bg-green-700 text-xs font-normal p-1 rounded-xl text-white'>In progress</span>
           </h3>
