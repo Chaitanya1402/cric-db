@@ -7,23 +7,32 @@ import PlayerInfo from './components/PlayerInfo';
 import ErrorPage from './components/ErrorPage';
 import Contact from './components/Contact';
 import About from './components/About';
+import useLocalStorage from 'use-local-storage';
 
 function App() {
+  const [theme, setTheme] = useLocalStorage('theme' ? 'dark' : 'light');
+
+  const toggleTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  }
+
   return (
     <>
-      <Router>
-      <Navbar />
-        <Routes>
-          <Route path='/' element={<><Jumbotron /> <About /></>} />
-          <Route path='players' element={<PlayerList />} />
-          <Route path='players/:id/:name' element={<PlayerInfo />} />
-          <Route path='about' element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          {/* For error page */}
-          <Route path='*' element={<ErrorPage />} />
+      <div className='app' data-theme={theme}>
+        <Router>
+          <Navbar theme={theme} toggleTheme={toggleTheme}/>
+          <Routes>
+            <Route path='/' element={<><Jumbotron /> <About /></>} />
+            <Route path='players' element={<PlayerList />} />
+            <Route path='players/:id/:name' element={<PlayerInfo />} />
+            <Route path='about' element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            {/* For error page */}
+            <Route path='*' element={<ErrorPage />} />
 
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </div>
     </>
   );
 }

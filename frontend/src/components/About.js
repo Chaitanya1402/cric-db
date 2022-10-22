@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
+    <div className='about'>
         <div className='px-[7.5%] my-7'>
         <h2 className='text-2xl md:text-3xl font-medium mb-4'>What is <span className='font-anton'>CricDB</span> ?</h2>
         <p className='text-justify'>CricDB is a website that allows you to view cricket player details much more easily. You can also filter players based on their role - batsman, wicket-keeper, all-rounder or bowler to narrow your search results. All the details of a player are stored in our database. You can view his ICC Ranking, teams played for along with the player’s personal information. <br /> <br />
@@ -10,7 +10,7 @@ const About = () => {
         </p>
 
         <div className='testimonials flex md:flex-row flex-col justify-center items-center mt-7'>
-          <div className='testimonial-card md:w-auto w-[65%] px-7 py-4 mx-10 md:mb-0 mb-10 bg-purple-200 rounded-lg'>
+          <div className='testimonial-card md:w-auto w-[65%] px-7 py-4 mx-10 md:mb-0 mb-10 rounded-lg'>
             <div className='h-32 w-32 md:h-48 md:w-48 m-auto'>
               <img src="https://m.media-amazon.com/images/M/MV5BZmI0MDkwMTgtYzliYS00NWQ4LTg2OTUtNDdhYTYwZWI0NDk3XkEyXkFqcGdeQXVyOTAyMDgxODQ@._V1_.jpg" className='w-[100%] h-[100%] object-cover object-top rounded-full' alt="" />
             </div>
@@ -20,7 +20,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className='testimonial-card md:w-auto w-[65%] px-7 py-4 mx-10 md:mb-0 mb-10 bg-purple-200 rounded-lg'>
+          <div className='testimonial-card md:w-auto w-[65%] px-7 py-4 mx-10 md:mb-0 mb-10 rounded-lg'>
             <div className='h-32 w-32 md:h-48 md:w-48 m-auto'>
               <img src="https://c.cricketpakistan.com.pk/images/posts/cover_1582389535cover.jpg" className='w-[100%] h-[100%] object-cover object-top rounded-full' alt="" />
             </div>
@@ -30,7 +30,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className='testimonial-card md:w-auto w-[65%] px-7 py-4 mx-10 md:mb-0 mb-10 bg-purple-200 rounded-lg'>
+          <div className='testimonial-card md:w-auto w-[65%] px-7 py-4 mx-10 md:mb-0 mb-10 rounded-lg'>
             <div className='h-32 w-32 md:h-48 md:w-48 m-auto'>
               <img src="https://www.tollywood.net/wp-content/uploads/2019/08/Ravi-Shastri.jpg" className='w-[100%] h-[100%] object-cover object-top rounded-full' alt="" />
             </div>
@@ -43,7 +43,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className='px-[7.5%] my-10'>
+      <div className='px-[7.5%] mt-10 pb-10'>
         <h2 className='text-2xl md:text-3xl font-medium mb-2'>What are the tech-stacks used to build <span className='font-anton'>CricDB</span> ?</h2>
         
         <div className="imgs flex justify-center items-center mb-2">

@@ -32,42 +32,42 @@ const PlayerInfo = () => {
 
   return (
     <>
-      {details && <div className='w-[90%] md:w-[75%] m-auto my-4 md:my-8'>
+      {details && <div className='w-[90%] md:w-[75%] m-auto mt-4 md:mt-8 pb-4 player-info'>
         <div className='flex flex-col-reverse md:flex-row'>
           <div className='details md:w-[65%]'>
             <p className='text-2xl md:text-4xl font-semibold'>{details.name}</p>
             <p className='text-lg md:text-xl font-medium'>{details.country}</p>
             <p className='text-lg mt-5'>Personal Information</p>
-            <div className='my-2 bg-gray-100 md:w-[60%]'>
+            <div className='my-2 md:w-[60%] table-bg'>
               {details.personalInfo && details.personalInfo.map((element, key) => {
                 return (
                   <div className='flex justify-between' key={key}>
-                    <p className='w-[100%] px-2 py-1 border border-gray-200 font-medium'>{Object.keys(element)[0]}</p>
-                    <p className='w-[100%] px-2 py-1 border border-gray-200'>{element[Object.keys(element)[0]]}</p>
+                    <p className='w-[100%] px-2 py-1 border table-border font-medium'>{Object.keys(element)[0]}</p>
+                    <p className='w-[100%] px-2 py-1 border table-border'>{element[Object.keys(element)[0]]}</p>
                   </div>
                 )
               })}
             </div>
 
             <p className='text-lg mt-5'>ICC Rankings</p>
-            <div className='my-2 bg-gray-100 md:w-[60%] grid grid-cols-4'>
-              <p className='px-2 py-1 border border-gray-200'></p>
-              <p className='px-2 py-1 border border-gray-200 font-medium'>Test</p>
-              <p className='px-2 py-1 border border-gray-200 font-medium'>ODI</p>
-              <p className='px-2 py-1 border border-gray-200 font-medium'>T20</p>
-              <p className='px-2 py-1 border border-gray-200 font-medium'>Batting</p>
-              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[0].batting[0].Test}</p>
-              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[0].batting[1].ODI}</p>
-              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[0].batting[2].T20}</p>
-              <p className='px-2 py-1 border border-gray-200 font-medium'>Bowling</p>
-              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[1].bowling[0].Test}</p>
-              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[1].bowling[1].ODI}</p>
-              <p className='px-2 py-1 border border-gray-200'>{details.rankings && details.rankings[1].bowling[2].T20}</p>
+            <div className='my-2 md:w-[60%] grid grid-cols-4 table-bg'>
+              <p className='px-2 py-1 border table-border'></p>
+              <p className='px-2 py-1 border table-border font-medium'>Test</p>
+              <p className='px-2 py-1 border table-border font-medium'>ODI</p>
+              <p className='px-2 py-1 border table-border font-medium'>T20</p>
+              <p className='px-2 py-1 border table-border font-medium'>Batting</p>
+              <p className='px-2 py-1 border table-border'>{details.rankings && details.rankings[0].batting[0].Test}</p>
+              <p className='px-2 py-1 border table-border'>{details.rankings && details.rankings[0].batting[1].ODI}</p>
+              <p className='px-2 py-1 border table-border'>{details.rankings && details.rankings[0].batting[2].T20}</p>
+              <p className='px-2 py-1 border table-border font-medium'>Bowling</p>
+              <p className='px-2 py-1 border table-border'>{details.rankings && details.rankings[1].bowling[0].Test}</p>
+              <p className='px-2 py-1 border table-border'>{details.rankings && details.rankings[1].bowling[1].ODI}</p>
+              <p className='px-2 py-1 border table-border'>{details.rankings && details.rankings[1].bowling[2].T20}</p>
             </div>
 
             <p className='text-lg mt-5'>Teams played for:</p>
 
-            <div className='my-2 bg-gray-100 md:w-[60%] py-1 px-2 border border-gray-200'>
+            <div className='my-2 md:w-[60%] py-1 px-2 table-bg border table-border'>
               {details.teamsPlayedFor}
             </div>
           </div>
