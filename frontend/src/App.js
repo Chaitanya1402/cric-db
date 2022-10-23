@@ -7,6 +7,7 @@ import PlayerInfo from './components/PlayerInfo';
 import ErrorPage from './components/ErrorPage';
 import Contact from './components/Contact';
 import About from './components/About';
+import Wrapper from './components/Wrapper';
 import useLocalStorage from 'use-local-storage';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <>
       <div className='app' data-theme={theme}>
         <Router>
+          <Wrapper>
           <Navbar theme={theme} toggleTheme={toggleTheme}/>
           <Routes>
             <Route path='/' element={<><Jumbotron /> <About /></>} />
@@ -31,6 +33,7 @@ function App() {
             <Route path='*' element={<ErrorPage />} />
 
           </Routes>
+          </Wrapper>
         </Router>
       </div>
     </>
