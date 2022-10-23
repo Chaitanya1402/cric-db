@@ -1,11 +1,10 @@
 const express = require("express")
 const cors = require("cors");
-
+require('dotenv').config();
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var url = "mongodb+srv://chaitanyas2002:chai2002@cric-db-cluster.tahgvje.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
-const port = 5000;
 
 const corsOptions = {
     origin: '*',
@@ -43,6 +42,6 @@ app.get("/api/playersbyid", (req, res) => {
     });
 })
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`Example app listening at http://localhost`);
 })

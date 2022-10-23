@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import SkeletonPlayerInfo from './SkeletonPlayerInfo';
 
 const PlayerInfo = () => {
   const [wiki, setWiki] = useState("");
   const [details, setDetails] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   let params = useParams();
 
   const fetchPlayerData = async () => {
-    var url = new URL("http://localhost:5000/api/playersbyid");
+    var url = new URL("https://cric-db.herokuapp.com/api/playersbyid");
     url.search = new URLSearchParams({ _id: params.id }).toString();
 
     const res = await fetch(url);
     const json = await res.json();
     setDetails(json.result);
+    setIsLoading(false);
   }
 
   const wikiPlayer = async () => {
@@ -28,12 +31,13 @@ const PlayerInfo = () => {
 
   useEffect(() => {
     wikiPlayer();
-  }, [wiki])
+  }, [details])
 
   return (
     <>
       {details && <div className='w-[90%] md:w-[75%] m-auto mt-4 md:mt-8 pb-4 player-info'>
-        <div className='flex flex-col-reverse md:flex-row'>
+    {isLoading ? <SkeletonPlayerInfo /> : <>
+    <div className='flex flex-col-reverse md:flex-row'>
           <div className='details md:w-[65%]'>
             <p className='text-2xl md:text-4xl font-semibold'>{details.name}</p>
             <p className='text-lg md:text-xl font-medium'>{details.country}</p>
@@ -79,6 +83,7 @@ const PlayerInfo = () => {
         <div className='my-5 text-justify'>
           {wiki !== "Undefined may refer to:" && wiki}
         </div>
+    </> }
       </div>}
     </>
   )
