@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors");
 require('dotenv').config();
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://chaitanyas2002:chai2002@cric-db-cluster.tahgvje.mongodb.net/?retryWrites=true&w=majority";
+var url = "mongodb+srv://chaitanyas2002:test1234@cric-db-cluster.tahgvje.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
 
