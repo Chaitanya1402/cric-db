@@ -9,6 +9,7 @@ CricDB is a website that allows you to view cricket player details much more eas
 - Node.js
 - Express.js
 - MongoDB
+- Firebase
 
 ---
 
@@ -16,16 +17,22 @@ CricDB is a website that allows you to view cricket player details much more eas
 
 ### Landing Page
 
-![Landing Page](readme_assests/landing_page.PNG)
+![Landing Page](readme_assets/landing_page.PNG)
+
+### Player Dashboard in Light Mode
+![Dashboard Page](readme_assets/dashboard_light.PNG)
+
+### Filter players category wise | Dashboard in Dark Mode
+![Dark Dashboard](readme_assets/dashboard_dark_bowlers.PNG)
 
 ### Feature to directly search for a player
-![Search](readme_assests/search.PNG)
+![Search](readme_assets/search.PNG)
 
 ### Detailed Player Info
-![Player Info](readme_assests/player_info.PNG)
+![Player Info](readme_assets/player_info.PNG)
 
 ### About Page
-![About](readme_assests/about.PNG)
+![About](readme_assets/about.PNG)
 
 ### Complete Responsiveness
-![Responsiveness](readme_assests/responsive.PNG)
+![Responsiveness](readme_assets/responsive.PNG)
